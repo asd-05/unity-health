@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Menu, X, Moon, Sun } from "lucide-react";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -12,7 +13,7 @@ export const Header = () => {
     // Check for saved theme preference or default to 'light'
     const savedTheme = localStorage.getItem("theme") as "light";
     const initialTheme = savedTheme;
-    
+
     setTheme(initialTheme);
   }, []);
 
@@ -20,7 +21,7 @@ export const Header = () => {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
     localStorage.setItem("theme", newTheme);
-    
+
     if (newTheme === "dark") {
       document.documentElement.classList.add("dark");
     } else {
@@ -30,16 +31,17 @@ export const Header = () => {
 
   const navItems = [
     { label: "Home", href: "#home" },
+    { label: "Features", href: "#features" },
     { label: "Specialties", href: "#specialties" },
-    { label: "Our Doctors", href: "#doctors" },
     { label: "About Us", href: "#about" },
+    { label: "Our Doctors", href: "#doctors" },
     { label: "Contact Us", href: "#contact" },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     setMobileMenuOpen(false);
-    
+
     if (href === "#home") {
       window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
@@ -55,7 +57,14 @@ export const Header = () => {
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
+          <Link href="/" className="flex items-center">
+            <Image
+              src={"/logo.png"}
+              alt="Unity Health India Logo"
+              width={80}
+              height={80}
+              // className="object-left"
+            />
             <span className="text-xl sm:text-2xl font-bold text-blue-600">
               Unity Health India
             </span>
@@ -73,7 +82,7 @@ export const Header = () => {
                 {item.label}
               </a>
             ))}
-            
+
             {/* Theme Toggle */}
             {/* <button
               onClick={toggleTheme}

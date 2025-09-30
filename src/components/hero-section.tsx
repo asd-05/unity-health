@@ -29,9 +29,8 @@ export const HeroSection = () => {
     <section
       id="home"
       ref={sectionRef}
-      className={`relative min-h-screen flex items-center bg-white pt-20 transition-all duration-1000 overflow-hidden ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-      }`}
+      className={`relative min-h-screen flex items-center bg-white pt-20 transition-all duration-1000 overflow-hidden ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        }`}
     >
       {/* ECG Background Animation */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -60,9 +59,9 @@ export const HeroSection = () => {
       </div>
 
       <div className="container mx-auto px-6 lg:px-20 relative z-10">
-        <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 gap-12 items-center">
+        <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 gap-8 items-center">
           {/* Left Content */}
-          <div className="space-y-6 sm:space-y-8 text-center lg:text-left mt-8 lg:mt-0">
+          <div className="space-y-6 sm:space-y-8 text-center lg:text-left mt-4 lg:mt-0">
             <h1 className="text-3xl sm:text-5xl lg:text-5xl font-bold leading-snug text-gray-900">
               Get Expert <br />
               <span className="text-blue-600">Medical Consultation</span>
@@ -80,16 +79,17 @@ export const HeroSection = () => {
           </div>
 
           {/* Hero Image */}
-          <div className="relative w-full flex justify-center mb-8 lg:mb-0">
+          <div className="relative w-full flex justify-center mb-4 lg:mb-0">
             <Image
               src="/hero-image.png"
               alt="Healthcare Illustration"
-              width={350} // smaller for mobile
-              height={300} // smaller for mobile
+              width={700} // base size, will scale automatically
+              height={600} // base size
               priority
-              className="rounded-3xl mx-auto lg:mx-0"
+              className="rounded-3xl mx-auto lg:mx-0 w-3/4 sm:w-2/3 md:w-1/2 lg:w-full h-auto"
             />
           </div>
+
         </div>
       </div>
 

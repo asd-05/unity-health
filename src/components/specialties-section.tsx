@@ -1,72 +1,76 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { JSX, useEffect, useRef, useState } from "react";
+import LogoLoop from "./LogoLoop";
 import {
-  IndianRupee,
-  Clock,
-  Video,
-  FileText,
-  ShieldCheck,
-  Languages,
+  Activity,
+  User,
+  Heart,
+  Stethoscope,
+  Brain,
+  Users,
+  Baby,
 } from "lucide-react";
+
+interface Specialty {
+  title: string;
+  icon: JSX.Element;
+  description: string;
+}
 
 export const SpecialtiesSection = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
+        if (entry.isIntersecting) setIsVisible(true);
       },
       { threshold: 0.1 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
+    if (sectionRef.current) observer.observe(sectionRef.current);
 
     return () => observer.disconnect();
   }, []);
 
-  const specialties = [
+  const specialties: Specialty[] = [
     {
-      icon: IndianRupee,
-      title: "Affordable Consultations",
-      description:
-        "Transparent and low-cost consultations, pay what you can with no hidden charges.",
+      icon: <Baby size={48} className="text-blue-600" />,
+      title: "Pediatrics",
+      description: "Comprehensive care for infants, children, and adolescents.",
     },
     {
-      icon: Clock,
-      title: "24/7 Doctor Access",
-      description:
-        "Get expert medical advice anytime, anywhere — no more long waiting queues.",
+      icon: <Stethoscope size={48} className="text-blue-600" />,
+      title: "Medicine",
+      description: "Primary and preventive care for adults of all ages.",
     },
     {
-      icon: Video,
-      title: "Video & Audio Calls",
-      description:
-        "Seamless online consultations with HD video or quick audio calls for your convenience.",
+      icon: <Heart size={48} className="text-blue-600" />,
+      title: "Cardiology",
+      description: "Heart health specialists offering advanced treatment and care.",
     },
     {
-      icon: FileText,
-      title: "Digital Prescriptions",
-      description:
-        "Instant, secure prescriptions you can download, store, and reuse easily.",
+      icon: <Brain size={48} className="text-blue-600" />,
+      title: "Neurology",
+      description: "Expert diagnosis and management of neurological conditions.",
     },
     {
-      icon: ShieldCheck,
-      title: "Verified Doctors",
-      description:
-        "Trusted, experienced doctors with verified credentials for genuine healthcare.",
+      icon: <User size={48} className="text-blue-600" />,
+      title: "Orthopedics",
+      description: "Bone, joint, and muscle care by experienced specialists.",
     },
     {
-      icon: Languages,
-      title: "Multi-Language Support",
-      description:
-        "Consult in your preferred regional language for comfort, clarity, and better care.",
+      icon: <Users size={48} className="text-blue-600" />,
+      title: "OBGYN",
+      description: "Women's health, pregnancy care, and reproductive services.",
+    },
+    {
+      icon: <Activity size={48} className="text-blue-600" />,
+      title: "Physiotherapy",
+      description: "Rehabilitation and mobility improvement programs.",
     },
   ];
 
@@ -74,54 +78,68 @@ export const SpecialtiesSection = () => {
     <section
       id="specialties"
       ref={sectionRef}
-      className={`py-16 sm:py-24 bg-gradient-to-br from-blue-50/50 to-white transition-all duration-1000 ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-      }`}
+      className={`py-16 sm:py-24 bg-white dark:bg-background transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        }`}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <div className="inline-block px-4 py-2 bg-blue-50 dark:bg-slate-800/50 text-blue-600 dark:text-blue-400 rounded-full text-sm font-semibold mb-4">
-            Why Choose Unity Health
+            Our Specialties
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            Healthcare That’s{" "}
-            <span className="text-blue-600 dark:text-blue-400">
-              Affordable & Accessible
-            </span>
+            Comprehensive Care Across <span className="text-blue-600">Medical Fields</span>
           </h2>
           <p className="text-lg text-foreground/70">
-            We focus on making healthcare convenient, affordable, and people-friendly for everyone.
+            From Pediatrics to Orthopedics, Cardiology to OBGYN, we cover a wide range of specialties to ensure your complete well-being.
           </p>
         </div>
 
-        {/* Specialties Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {specialties.map((specialty, index) => {
-            const Icon = specialty.icon;
-            return (
-              <div
-                key={index}
-                className="bg-card p-6 sm:p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group dark:bg-slate-800"
-                style={{
-                  animationDelay: `${index * 100}ms`,
-                }}
-              >
-                <div className="w-14 h-14 bg-blue-100 dark:bg-slate-700 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-600 transition-colors dark:group-hover:bg-blue-500">
-                  <Icon
-                    className="text-blue-600 group-hover:text-white transition-colors"
-                    size={28}
-                  />
+        {/* Interactive LogoLoop */}
+        <div className="relative h-48 overflow-visible">
+          <LogoLoop
+            logos={specialties.map((s, idx) => ({
+              node: (
+                <div
+                  onMouseEnter={() => setHoveredIndex(idx)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                  className="cursor-pointer p-4 bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-blue-600 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col items-center w-36"
+                >
+                  {s.icon}
+                  <span className="mt-2 font-semibold text-sm text-gray-800 dark:text-white">
+                    {s.title}
+                  </span>
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-card-foreground">
-                  {specialty.title}
+              ),
+              title: s.title,
+            }))}
+            speed={120}
+            direction="left"
+            logoHeight={96}
+            gap={32}
+            pauseOnHover
+            scaleOnHover
+            fadeOut
+            fadeOutColor="#ffffff"
+            ariaLabel="Medical Specialties"
+          />
+
+          {/* Hover Card */}
+          {/* {hoveredIndex !== null && (
+            <div
+              className="absolute top-40 left-0 right-0 flex justify-center pointer-events-none overflow-visible"
+              style={{ zIndex: 50 }}
+            >
+              <div className="bg-white dark:bg-slate-800 border border-gray-200 dark:border-gray-700 shadow-2xl rounded-xl p-6 w-96 text-center transition-all duration-300">
+                <h3 className="font-bold text-lg text-blue-600 mb-2">
+                  {specialties[hoveredIndex].title}
                 </h3>
-                <p className="text-foreground/70 leading-relaxed">
-                  {specialty.description}
+                <p className="text-gray-700 dark:text-gray-300 text-sm">
+                  {specialties[hoveredIndex].description}
                 </p>
               </div>
-            );
-          })}
+            </div>
+          )} */}
         </div>
       </div>
     </section>
