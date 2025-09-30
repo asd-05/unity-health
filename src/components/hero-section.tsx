@@ -35,13 +35,12 @@ export const HeroSection = () => {
     >
       {/* ECG Background Animation */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Repeat 3 ECG lines with staggered delays */}
         {[0, 1, 2].map((i) => (
           <svg
             key={i}
             className={`absolute w-[200%] h-[80px] text-blue-400 opacity-20`}
             style={{
-              top: `${30 + i * 70}px`, // space between lines
+              top: `${30 + i * 70}px`,
               animation: `ecgMove 6s linear infinite`,
               animationDelay: `${i * 2}s`,
             }}
@@ -61,15 +60,15 @@ export const HeroSection = () => {
       </div>
 
       <div className="container mx-auto px-6 lg:px-20 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
-          <div className="space-y-6 sm:space-y-8 text-center lg:text-left">
+          <div className="space-y-6 sm:space-y-8 text-center lg:text-left mt-8 lg:mt-0">
             <h1 className="text-3xl sm:text-5xl lg:text-5xl font-bold leading-snug text-gray-900">
               Get Expert <br />
               <span className="text-blue-600">Medical Consultation</span>
             </h1>
             <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-xl mx-auto lg:mx-0">
-              Unity Health provides Quality medical consultation with India’s best
+              Unity Health provides quality medical consultation with India’s best
               doctors, affordable at a cost you choose. Accessible <b>anytime, anywhere.</b>
             </p>
             <button
@@ -80,22 +79,20 @@ export const HeroSection = () => {
             </button>
           </div>
 
-          {/* Right Illustration */}
-          <div className="relative hidden lg:block">
-            {/* <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-transparent rounded-3xl -z-10"></div> */}
+          {/* Hero Image */}
+          <div className="relative w-full flex justify-center mb-8 lg:mb-0">
             <Image
               src="/hero-image.png"
               alt="Healthcare Illustration"
-              width={693}
-              height={598}
+              width={350} // smaller for mobile
+              height={300} // smaller for mobile
               priority
-              className="mx-auto"
+              className="rounded-3xl mx-auto lg:mx-0"
             />
           </div>
         </div>
       </div>
 
-      {/* Keyframes for ECG Animation */}
       <style jsx>{`
         @keyframes ecgMove {
           0% {

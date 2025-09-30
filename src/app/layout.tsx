@@ -4,6 +4,7 @@ import "./globals.css";
 import ErrorReporter from "@/components/ErrorReporter";
 import Script from "next/script";
 import { Roboto } from "next/font/google";
+import { Analytics } from '@vercel/analytics/next';
 
 const roboto = Roboto({
   weight: ["300", "400", "500", "700"],
@@ -34,10 +35,11 @@ export default function RootLayout({
           data-include-search-params="true"
           data-only-in-iframe="true"
           data-debug="true"
-          data-custom-data='{"appName": "YourApp", "version": "1.0.0", "greeting": "hi"}'
+          data-custom-data='{"appName": "Unity Health India", "version": "1.0.0", "greeting": "hi"}'
         />
         {children}
         {/* <VisualEditsMessenger /> */}
+        <Analytics />
       </body>
     </html>
   );

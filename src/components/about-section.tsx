@@ -25,10 +25,10 @@ export const AboutSection = () => {
   }, []);
 
   const features = [
-    "Experienced Medical Professionals",
-    "24/7 Emergency Services",
-    "Advanced Medical Equipment",
-    "Compassionate Patient Care",
+    "Affordable Consultations",
+    "24/7 Access to Doctors",
+    "Seamless Digital Care",
+    "Personalized & Trusted Care",
   ];
 
   return (
@@ -57,19 +57,16 @@ export const AboutSection = () => {
               About Unity Health India
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
-              Providing World-Class{" "}
-              <span className="text-blue-600">Healthcare Services</span>
+              Bringing <span className="text-blue-600">Compassionate Healthcare</span> Across India
             </h2>
             <p className="text-lg text-foreground/70 leading-relaxed">
-              At Unity Health India, we are committed to delivering exceptional
-              medical care with a focus on patient well-being. Our team of
-              highly qualified doctors and healthcare professionals work
-              tirelessly to ensure you receive the best treatment possible.
+              At Unity Health India, we believe that quality healthcare should be within everyone’s reach. 
+              Guided by compassion and trust, our dedicated doctors and healthcare professionals 
+              provide personalized care, ensuring every patient feels valued and supported.
             </p>
             <p className="text-lg text-foreground/70 leading-relaxed">
-              With state-of-the-art facilities and a patient-first approach, we
-              strive to make quality healthcare accessible to everyone across
-              India.
+              Our mission is to make affordable OPD consultations accessible across India, empowering every individual to take 
+              charge of their health without compromise.
             </p>
 
             {/* Features List */}
