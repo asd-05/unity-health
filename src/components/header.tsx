@@ -10,14 +10,10 @@ export const Header = () => {
 
   useEffect(() => {
     // Check for saved theme preference or default to 'light'
-    const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const initialTheme = savedTheme || (prefersDark ? "dark" : "light");
+    const savedTheme = localStorage.getItem("theme") as "light";
+    const initialTheme = savedTheme;
     
     setTheme(initialTheme);
-    if (initialTheme === "dark") {
-      document.documentElement.classList.add("dark");
-    }
   }, []);
 
   const toggleTheme = () => {
@@ -55,7 +51,7 @@ export const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-card/95 backdrop-blur-sm border-b border-border">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-card/95 backdrop-blur-sm ">
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14">
           {/* Logo */}
@@ -72,7 +68,7 @@ export const Header = () => {
                 key={item.label}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className="text-foreground/80 hover:text-blue-600 transition-colors font-medium cursor-pointer text-lg"
+                className="text-gray-500 hover:text-blue-600 transition-colors font-medium cursor-pointer text-18px"
               >
                 {item.label}
               </a>
@@ -99,11 +95,11 @@ export const Header = () => {
               className="p-2 rounded-lg hover:bg-accent transition-colors"
               aria-label="Toggle theme"
             >
-              {theme === "light" ? (
+              {/* {theme === "light" ? (
                 <Moon size={20} className="text-foreground/80" />
               ) : (
                 <Sun size={20} className="text-foreground/80" />
-              )}
+              )} */}
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

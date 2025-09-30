@@ -2,12 +2,12 @@
 
 import { useEffect, useRef, useState } from "react";
 import {
-  Heart,
-  Brain,
-  Stethoscope,
-  Pill,
-  Users,
-  Activity,
+  IndianRupee,
+  Clock,
+  Video,
+  FileText,
+  ShieldCheck,
+  Languages,
 } from "lucide-react";
 
 export const SpecialtiesSection = () => {
@@ -33,40 +33,40 @@ export const SpecialtiesSection = () => {
 
   const specialties = [
     {
-      icon: Activity,
-      title: "Dentistry",
+      icon: IndianRupee,
+      title: "Affordable Consultations",
       description:
-        "Complete dental care including preventive, cosmetic, and restorative treatments.",
+        "Transparent and low-cost consultations, pay what you can with no hidden charges.",
     },
     {
-      icon: Stethoscope,
-      title: "General Diagnosis",
+      icon: Clock,
+      title: "24/7 Doctor Access",
       description:
-        "Comprehensive health assessments and diagnostic services for all conditions.",
+        "Get expert medical advice anytime, anywhere — no more long waiting queues.",
     },
     {
-      icon: Brain,
-      title: "Neuro Surgery",
+      icon: Video,
+      title: "Video & Audio Calls",
       description:
-        "Advanced neurological surgical procedures performed by expert surgeons.",
+        "Seamless online consultations with HD video or quick audio calls for your convenience.",
     },
     {
-      icon: Heart,
-      title: "Cardiology",
+      icon: FileText,
+      title: "Digital Prescriptions",
       description:
-        "Specialized heart care including diagnosis, treatment, and preventive services.",
+        "Instant, secure prescriptions you can download, store, and reuse easily.",
     },
     {
-      icon: Pill,
-      title: "Pharmacy",
+      icon: ShieldCheck,
+      title: "Verified Doctors",
       description:
-        "24/7 pharmacy services with genuine medications and expert consultation.",
+        "Trusted, experienced doctors with verified credentials for genuine healthcare.",
     },
     {
-      icon: Users,
-      title: "Trained Staff",
+      icon: Languages,
+      title: "Multi-Language Support",
       description:
-        "Highly qualified medical professionals dedicated to patient care excellence.",
+        "Consult in your preferred regional language for comfort, clarity, and better care.",
     },
   ];
 
@@ -82,15 +82,16 @@ export const SpecialtiesSection = () => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <div className="inline-block px-4 py-2 bg-blue-50 dark:bg-slate-800/50 text-blue-600 dark:text-blue-400 rounded-full text-sm font-semibold mb-4">
-            Our Specialties
+            Why Choose Unity Health
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            Comprehensive{" "}
-            <span className="text-blue-600 dark:text-blue-400">Medical Services</span>
+            Healthcare That’s{" "}
+            <span className="text-blue-600 dark:text-blue-400">
+              Affordable & Accessible
+            </span>
           </h2>
           <p className="text-lg text-foreground/70">
-            We offer a wide range of specialized medical services to meet all
-            your healthcare needs
+            We focus on making healthcare convenient, affordable, and people-friendly for everyone.
           </p>
         </div>
 
@@ -107,9 +108,14 @@ export const SpecialtiesSection = () => {
                 }}
               >
                 <div className="w-14 h-14 bg-blue-100 dark:bg-slate-700 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-600 transition-colors dark:group-hover:bg-blue-500">
-                  <Icon className="text-blue-600 group-hover:text-white transition-colors" size={28} />
+                  <Icon
+                    className="text-blue-600 group-hover:text-white transition-colors"
+                    size={28}
+                  />
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-card-foreground"> {specialty.title} </h3>
+                <h3 className="text-xl font-bold mb-3 text-card-foreground">
+                  {specialty.title}
+                </h3>
                 <p className="text-foreground/70 leading-relaxed">
                   {specialty.description}
                 </p>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 export const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -9,17 +10,11 @@ export const HeroSection = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
+        if (entry.isIntersecting) setIsVisible(true);
       },
       { threshold: 0.1 }
     );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
+    if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
@@ -34,42 +29,83 @@ export const HeroSection = () => {
     <section
       id="home"
       ref={sectionRef}
-      className={`relative min-h-screen flex items-center bg-gradient-to-br from-blue-50/50 to-white dark:from-blue-950/20 dark:to-background pt-20 transition-all duration-1000 ${
+      className={`relative min-h-screen flex items-center bg-white pt-20 transition-all duration-1000 overflow-hidden ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      {/* ECG Background Animation */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Repeat 3 ECG lines with staggered delays */}
+        {[0, 1, 2].map((i) => (
+          <svg
+            key={i}
+            className={`absolute w-[200%] h-[80px] text-blue-400 opacity-20`}
+            style={{
+              top: `${30 + i * 70}px`, // space between lines
+              animation: `ecgMove 6s linear infinite`,
+              animationDelay: `${i * 2}s`,
+            }}
+            viewBox="0 0 1000 100"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 50 H150 L200 20 L250 80 L300 50 H400 L450 20 L500 80 L550 50 H700 L750 20 L800 80 L850 50 H1000"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        ))}
+      </div>
+
+      <div className="container mx-auto px-6 lg:px-20 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
-          <div className="space-y-6 sm:space-y-8">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
-              Get Expert{" "}
-              <span className="text-blue-600">Medical Consultation!</span>
+          <div className="space-y-6 sm:space-y-8 text-center lg:text-left">
+            <h1 className="text-3xl sm:text-5xl lg:text-5xl font-bold leading-snug text-gray-900">
+              Get Expert <br />
+              <span className="text-blue-600">Medical Consultation</span>
             </h1>
-            <p className="text-lg sm:text-xl text-foreground/70 max-w-xl">
-              Our doctors provide expert medical advice and consultation.   At a price you want!
+            <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-xl mx-auto lg:mx-0">
+              Unity Health provides Quality medical consultation with India’s best
+              doctors, affordable at a cost you choose. Accessible <b>anytime, anywhere.</b>
             </p>
-
-            {/* Book Now Button */}
-            <button 
+            <button
               onClick={handleBookNow}
-              className="bg-blue-600 text-white px-8 py-4 rounded-xl hover:bg-blue-700 transition-colors font-semibold text-lg inline-flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
+              className="bg-blue-500 text-white px-6 sm:px-8 py-3 rounded-full hover:bg-blue-600 transition-colors font-semibold text-base sm:text-lg shadow-lg"
             >
-              Book Now
+              Consult Today
             </button>
           </div>
 
-          {/* Right Image - Hidden on mobile/tablet */}
-          <div className="relative lg:h-[600px] h-[400px] hidden lg:block">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-transparent rounded-3xl"></div>
-            <img
-              src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=800"
-              alt="Professional Doctor"
-              className="w-full h-full object-cover rounded-3xl shadow-2xl"
+          {/* Right Illustration */}
+          <div className="relative hidden lg:block">
+            {/* <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-transparent rounded-3xl -z-10"></div> */}
+            <Image
+              src="/hero-image.png"
+              alt="Healthcare Illustration"
+              width={693}
+              height={598}
+              priority
+              className="mx-auto"
             />
           </div>
         </div>
       </div>
+
+      {/* Keyframes for ECG Animation */}
+      <style jsx>{`
+        @keyframes ecgMove {
+          0% {
+            transform: translateX(-50%);
+          }
+          100% {
+            transform: translateX(0%);
+          }
+        }
+      `}</style>
     </section>
   );
 };
