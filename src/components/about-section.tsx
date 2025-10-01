@@ -50,8 +50,8 @@ export const AboutSection = () => {
           </div>
 
           {/* Right Content */}
-          <div className="space-y-6 lg:text-left">
-            <div className="inline-block px-4 py-2 bg-blue-50 dark:bg-blue-950/30 text-blue-500 rounded-full text-sm font-semibold mx-auto">
+          <div className="space-y-6 text-center lg:text-left">
+            <div className="inline-block px-4 py-2 bg-blue-50 dark:bg-blue-950/30 text-blue-500 rounded-full text-sm font-semibold">
               About Unity Health India
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">

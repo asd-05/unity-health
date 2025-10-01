@@ -1,25 +1,68 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { Linkedin, Twitter, Mail } from "lucide-react"; // social icons
+
+const doctors = [
+  {
+    name: "Dr. Abhishek Chabukswar",
+    specialty: "Orthopedic Surgeon",
+    image:"/bhau-doc.png",
+    info: "20+ years of experience, specialized in heart surgeries and treatments.",
+    socials: {
+      linkedin: "#",
+      twitter: "#",
+      email: "mailto:rajesh@example.com",
+    },
+  },
+  {
+    name: "Dr. Akshata Chabukswar",
+    specialty: "Dentist",
+    image:"/akshu-doc.png",
+    info: "Expert in brain and spine disorders, practicing at Apollo Hospital.",
+    socials: {
+      linkedin: "#",
+      twitter: "#",
+      email: "mailto:priya@example.com",
+    },
+  },
+  {
+     name: "Dr. Abhishek Chabukswar",
+    specialty: "Orthopedic Surgeon",
+    image:"/bhau-doc.png",
+    info: "Trusted family doctor, known for holistic treatments.",
+    socials: {
+      linkedin: "#",
+      twitter: "#",
+      email: "mailto:amit@example.com",
+    },
+  },
+  {
+    name: "Dr. Akshata Chabukswar",
+    specialty: "Dentist",
+    image:"/akshu-doc.png",
+    info: "Cosmetic and pediatric dentistry expert with 10+ years of experience.",
+    socials: {
+      linkedin: "#",
+      twitter: "#",
+      email: "mailto:sneha@example.com",
+    },
+  },
+];
 
 export const DoctorsSection = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [flipped, setFlipped] = useState<number | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
+        if (entry.isIntersecting) setIsVisible(true);
       },
       { threshold: 0.1 }
     );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
+    if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
@@ -38,67 +81,97 @@ export const DoctorsSection = () => {
             Our Expert Team
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            Meet Our{" "}
-            <span className="text-blue-500">Experienced Doctors</span>
+            Meet Our <span className="text-blue-500">Experienced Doctors</span>
           </h2>
           <p className="text-lg text-foreground/70">
             Committed to excellence in healthcare with compassion and expertise
           </p>
         </div>
 
-        {/* Doctor Images Grid */}
+        {/* Doctor Flip Cards */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="relative h-[300px] sm:h-[350px] rounded-2xl overflow-hidden shadow-lg group">
-            <img
-              src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=400"
-              alt="Doctor 1"
-              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-            <div className="absolute bottom-4 left-4 text-white">
-              <h3 className="font-bold text-lg">Dr. Rajesh Kumar</h3>
-              <p className="text-sm text-white/80">Cardiologist</p>
-            </div>
-          </div>
+          {doctors.map((doc, index) => (
+            <div
+              key={index}
+              className={`relative w-full h-[320px] sm:h-[370px] cursor-pointer [perspective:1000px] group 
+                transform transition-all duration-700 ease-out hover:shadow-2xl hover:shadow-blue-300/50
+                ${
+                  isVisible
+                    ? "opacity-100 scale-100"
+                    : "opacity-0 scale-95"
+                }`}
+              style={{ transitionDelay: `${index * 150}ms` }} // stagger effect
+              onClick={() =>
+                setFlipped((prev) => (prev === index ? null : index))
+              }
+            >
+              <div
+                className={`relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] 
+                ${
+                  flipped === index
+                    ? "[transform:rotateY(180deg)]"
+                    : "group-hover:[transform:rotateY(180deg)]"
+                }`}
+              >
+                {/* Front Side */}
+                <div className="absolute w-full h-full rounded-2xl overflow-hidden shadow-lg [backface-visibility:hidden]">
+                  <img
+                    src={doc.image}
+                    alt={doc.name}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  <div className="absolute bottom-4 left-4 text-white">
+                    <h3 className="font-bold text-lg">{doc.name}</h3>
+                    <p className="text-sm text-white/80">{doc.specialty}</p>
+                  </div>
+                </div>
 
-          <div className="relative h-[300px] sm:h-[350px] rounded-2xl overflow-hidden shadow-lg group">
-            <img
-              src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?q=80&w=400"
-              alt="Doctor 2"
-              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-            <div className="absolute bottom-4 left-4 text-white">
-              <h3 className="font-bold text-lg">Dr. Priya Sharma</h3>
-              <p className="text-sm text-white/80">Neurologist</p>
-            </div>
-          </div>
+                {/* Back Side */}
+                <div className="absolute w-full h-full rounded-2xl bg-gradient-to-b from-blue-300 to-blue-700 text-white p-6 flex flex-col justify-between text-center shadow-lg [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                  {/* Doctor Image */}
+                  <div className="flex flex-col items-center">
+                    <img
+                      src={doc.image}
+                      alt={doc.name}
+                      className="w-20 h-20 rounded-full border-4 border-white shadow-md mb-3"
+                    />
+                    <h3 className="font-bold text-lg">{doc.name}</h3>
+                    <p className="text-sm text-blue-100">{doc.specialty}</p>
+                  </div>
 
-          <div className="relative h-[300px] sm:h-[350px] rounded-2xl overflow-hidden shadow-lg group">
-            <img
-              src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=400"
-              alt="Doctor 3"
-              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-            <div className="absolute bottom-4 left-4 text-white">
-              <h3 className="font-bold text-lg">Dr. Amit Patel</h3>
-              <p className="text-sm text-white/80">General Physician</p>
-            </div>
-          </div>
+                  {/* Info */}
+                  <p className="text-sm opacity-90">{doc.info}</p>
 
-          <div className="relative h-[300px] sm:h-[350px] rounded-2xl overflow-hidden shadow-lg group">
-            <img
-              src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=400"
-              alt="Doctor 4"
-              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-            <div className="absolute bottom-4 left-4 text-white">
-              <h3 className="font-bold text-lg">Dr. Sneha Reddy</h3>
-              <p className="text-sm text-white/80">Dentist</p>
+                  {/* Social Links */}
+                  <div className="flex justify-center space-x-4 mt-4">
+                    <a
+                      href={doc.socials.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 bg-white/10 rounded-full hover:bg-white/20 transition"
+                    >
+                      <Linkedin size={18} />
+                    </a>
+                    <a
+                      href={doc.socials.twitter}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 bg-white/10 rounded-full hover:bg-white/20 transition"
+                    >
+                      <Twitter size={18} />
+                    </a>
+                    <a
+                      href={doc.socials.email}
+                      className="p-2 bg-white/10 rounded-full hover:bg-white/20 transition"
+                    >
+                      <Mail size={18} />
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

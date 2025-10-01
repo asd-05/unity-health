@@ -9,28 +9,9 @@ import {
   ShieldCheck,
   Languages,
 } from "lucide-react";
+import { motion } from "framer-motion";
 
 export const FeaturesSection = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
   const features = [
     {
       icon: IndianRupee,
@@ -43,7 +24,9 @@ export const FeaturesSection = () => {
       title: "Expert Doctors On-Demand",
       description: (
         <>
-          Get expert medical advice <span className="font-semibold">anywhere</span> — no more long waiting queues.
+          Get expert medical advice{" "}
+          <span className="font-semibold">anywhere</span> — no more long waiting
+          queues.
         </>
       ),
     },
@@ -73,12 +56,20 @@ export const FeaturesSection = () => {
     },
   ];
 
+  // Animation variants
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: (delay: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut", delay },
+    }),
+  };
+
   return (
     <section
       id="features"
-      ref={sectionRef}
-      className={`py-12 sm:py-20 bg-gradient-to-br from-blue-50/50 to-white transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-        }`}
+      className="py-12 sm:py-20 bg-gradient-to-br from-blue-50/50 to-white dark:from-slate-900 dark:to-slate-950"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -93,7 +84,8 @@ export const FeaturesSection = () => {
             </span>
           </h2>
           <p className="text-base sm:text-lg text-foreground/70">
-            We focus on making healthcare convenient, affordable, and people-friendly for everyone.
+            We focus on making healthcare convenient, affordable, and
+            people-friendly for everyone.
           </p>
         </div>
 
@@ -102,12 +94,10 @@ export const FeaturesSection = () => {
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
-              <div
+              <InViewCard
                 key={index}
-                className="bg-card p-4 sm:p-6 lg:p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group dark:bg-slate-800 flex flex-col items-center text-center"
-                style={{
-                  animationDelay: `${index * 100}ms`,
-                }}
+                variants={cardVariants}
+                index={index}
               >
                 <div className="w-12 h-12 sm:w-14 sm:h-14 bg-blue-100 dark:bg-slate-700 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-600 transition-colors dark:group-hover:bg-blue-500">
                   <Icon
@@ -121,7 +111,7 @@ export const FeaturesSection = () => {
                 <p className="text-sm sm:text-base text-foreground/70 leading-relaxed">
                   {feature.description}
                 </p>
-              </div>
+              </InViewCard>
             );
           })}
         </div>
@@ -129,3 +119,49 @@ export const FeaturesSection = () => {
     </section>
   );
 };
+
+// 🔹 Each card animates when visible
+const InViewCard = ({
+  children,
+  variants,
+  index,
+}: {
+  children: React.ReactNode;
+  variants: any;
+  index: number;
+}) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  // ✅ Stagger animation for ALL viewports (desktop + mobile)
+  const delay = index * 0.2;
+
+  return (
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={visible ? "visible" : "hidden"}
+      custom={delay}
+      variants={variants}
+      className="bg-card p-4 sm:p-6 lg:p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group dark:bg-slate-800 flex flex-col items-center text-center"
+    >
+      {children}
+    </motion.div>
+  );
+};
+

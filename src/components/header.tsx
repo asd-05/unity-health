@@ -1,6 +1,4 @@
 "use client";
-
-import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import Image from "next/image";
@@ -58,17 +56,28 @@ export const Header = () => {
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
+          <a
+            href="#home"
+            onClick={(e) => {
+              e.preventDefault();
+              const hero = document.querySelector("#home");
+              if (hero) {
+                hero.scrollIntoView({ behavior: "smooth", block: "start" });
+              }
+              setMobileMenuOpen(false); // close mobile menu if open
+            }}
+            className="flex items-center"
+          >
             <Image
-              src={"/unity-logo.png"}
+              src={"/newlogo1.png"}
               alt="Unity Health India Logo"
-              width={80}
-              height={80}
+              width={40}
+              height={40}
             />
-            <span className="text-xl sm:text-2xl font-bold text-blue-500">
+            <span className="text-lg sm:text-xl font-bold text-blue-500 ml-2">
               UNITY HEALTH INDIA
             </span>
-          </Link>
+          </a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6 lg:gap-8">
@@ -77,11 +86,10 @@ export const Header = () => {
                 key={item.label}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className={`transition-colors font-medium cursor-pointer text-18px ${
-                  activeSection === item.href
+                className={`transition-colors font-medium cursor-pointer text-18px ${activeSection === item.href
                     ? "text-blue-600 font-semibold"
                     : "text-gray-500 hover:text-blue-500"
-                }`}
+                  }`}
               >
                 {item.label}
               </a>
@@ -109,11 +117,10 @@ export const Header = () => {
                   key={item.label}
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
-                  className={`transition-colors font-medium py-2 cursor-pointer ${
-                    activeSection === item.href
+                  className={`transition-colors font-medium py-2 cursor-pointer ${activeSection === item.href
                       ? "text-blue-600 font-semibold"
                       : "text-foreground/80 hover:text-blue-500"
-                  }`}
+                    }`}
                 >
                   {item.label}
                 </a>

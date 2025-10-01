@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
-// import VisualEditsMessenger from "../visual-edits/VisualEditsMessenger";
 import ErrorReporter from "@/components/ErrorReporter";
 import Script from "next/script";
-import { Roboto } from "next/font/google";
-import { Analytics } from '@vercel/analytics/next';
+import { Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 
-const roboto = Roboto({
+const inter = Inter({
   weight: ["300", "400", "500", "700"],
   subsets: ["latin"],
   display: "swap",
@@ -25,7 +24,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${roboto.variable} antialiased`}>
+      <body
+        className={`${inter.variable} antialiased`}
+        style={{
+          fontFamily:
+            "Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif",
+        }}
+      >
         <ErrorReporter />
         <Script
           src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts//route-messenger.js"
@@ -35,10 +40,9 @@ export default function RootLayout({
           data-include-search-params="true"
           data-only-in-iframe="true"
           data-debug="true"
-          data-custom-data='{"appName": "Unity Health India", "version": "1.0.0", "greeting": "hi"}'
+          data-custom-data='{\"appName\": \"Unity Health India\", \"version\": \"1.0.0\", \"greeting\": \"hi\"}'
         />
         {children}
-        {/* <VisualEditsMessenger /> */}
         <Analytics />
       </body>
     </html>

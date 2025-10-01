@@ -1,17 +1,19 @@
 import Link from "next/link";
-import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
+import { FaInstagram, FaLinkedin, FaFacebook  } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 export const Footer = () => {
   const socialLinks = [
-    { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
+    { icon: FaFacebook, href: "#", label: "Facebook" },
+    { icon: FaXTwitter, href: "#", label: "Twitter" },
+    { icon: FaInstagram, href: "#", label: "Instagram" },
+    { icon: FaLinkedin, href: "#", label: "LinkedIn" },
   ];
 
   return (
     <footer className="bg-gray-900 text-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-6">
         {/* Main Section */}
         <div className="flex flex-col lg:flex-row justify-between gap-12">
           {/* Company Info */}
@@ -72,7 +74,7 @@ export const Footer = () => {
             © 2025 Unity Health India. All rights reserved.
           </p>
           <p className="text-gray-400 text-sm">
-            Designed with ❤️ by Anish Deshpande
+            Created with ❤️ in India.
           </p>
         </div>
       </div>
