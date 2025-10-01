@@ -64,7 +64,7 @@ export const HeroSection = () => {
           <div className="space-y-6 sm:space-y-8 text-center lg:text-left mt-4 lg:mt-0">
             <h1 className="text-3xl sm:text-5xl lg:text-5xl font-bold leading-snug text-gray-900">
               Get Expert <br />
-              <span className="text-blue-600">Medical Consultation</span>
+              <span className="text-blue-500">Medical Consultation</span>
             </h1>
             <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-xl mx-auto lg:mx-0">
               Unity Health provides quality medical consultation with India’s best

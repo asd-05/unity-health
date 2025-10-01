@@ -127,11 +127,11 @@ export const ContactSection = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <div className="inline-block px-4 py-2 bg-blue-50 dark:bg-slate-800/50 text-blue-600 dark:text-blue-400 rounded-full text-sm font-semibold mb-4">
+          <div className="inline-block px-4 py-2 bg-blue-50 dark:bg-slate-800/50 text-blue-500 dark:text-blue-400 rounded-full text-sm font-semibold mb-4">
             Get In Touch
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            Contact <span className="text-blue-600 dark:text-blue-400">Unity Health</span>
+            Contact <span className="text-blue-500 dark:text-blue-400">Unity Health</span>
           </h2>
           <p className="text-lg text-foreground/70">
             Have questions? We're here to help. Send us your queries and we'll

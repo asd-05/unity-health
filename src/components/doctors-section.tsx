@@ -34,12 +34,12 @@ export const DoctorsSection = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <div className="inline-block px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-sm font-semibold mb-4">
+          <div className="inline-block px-4 py-2 bg-blue-50 text-blue-500 rounded-full text-sm font-semibold mb-4">
             Our Expert Team
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
             Meet Our{" "}
-            <span className="text-blue-600">Experienced Doctors</span>
+            <span className="text-blue-500">Experienced Doctors</span>
           </h2>
           <p className="text-lg text-foreground/70">
             Committed to excellence in healthcare with compassion and expertise

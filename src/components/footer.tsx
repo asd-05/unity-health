@@ -2,22 +2,6 @@ import Link from "next/link";
 import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 
 export const Footer = () => {
-  const quickLinks = [
-    { label: "Home", href: "/" },
-    { label: "About Us", href: "#about" },
-    { label: "Specialties", href: "#specialties" },
-    { label: "Doctors", href: "#doctors" },
-    { label: "OPD Booking", href: "#book" },
-  ];
-
-  const services = [
-    { label: "Emergency Care", href: "#" },
-    { label: "Laboratory", href: "#" },
-    { label: "Pharmacy", href: "#" },
-    { label: "Health Checkup", href: "#" },
-    { label: "Telemedicine", href: "#" },
-  ];
-
   const socialLinks = [
     { icon: Facebook, href: "#", label: "Facebook" },
     { icon: Twitter, href: "#", label: "Twitter" },
@@ -27,10 +11,11 @@ export const Footer = () => {
 
   return (
     <footer className="bg-gray-900 text-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-8">
+        {/* Main Section */}
+        <div className="flex flex-col lg:flex-row justify-between gap-12">
           {/* Company Info */}
-          <div className="space-y-4">
+          <div className="max-w-md space-y-4">
             <h3 className="text-xl sm:text-2xl font-bold">
               <span className="text-blue-400">Unity Health</span> India
             </h3>
@@ -55,42 +40,8 @@ export const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-lg font-bold mb-4">Quick Links</h4>
-            <ul className="space-y-3">
-              {quickLinks.map((link, index) => (
-                <li key={index}>
-                  <Link
-                    href={link.href}
-                    className="text-gray-400 hover:text-blue-400 transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h4 className="text-lg font-bold mb-4">Services</h4>
-            <ul className="space-y-3">
-              {services.map((service, index) => (
-                <li key={index}>
-                  <Link
-                    href={service.href}
-                    className="text-gray-400 hover:text-blue-400 transition-colors"
-                  >
-                    {service.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
           {/* Contact Info */}
-          <div>
+          <div className="max-w-md">
             <h4 className="text-lg font-bold mb-4">Contact Us</h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
@@ -107,26 +58,22 @@ export const Footer = () => {
               <li className="flex items-start gap-3">
                 <MapPin className="text-blue-400 flex-shrink-0 mt-1" size={18} />
                 <p className="text-gray-400">
-                  123 Health Street, Medical District, Mumbai, Maharashtra 400001
+                  123 Health Street, Medical District, <br />
+                  Mumbai, Maharashtra 400001
                 </p>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-gray-400 text-sm text-center sm:text-left">
+        {/* Bottom Bar (simplified) */}
+        <div className="border-t border-gray-800 mt-4 pt-4 text-center">
+          <p className="text-gray-400 text-sm">
             © 2025 Unity Health India. All rights reserved.
           </p>
-          <div className="flex gap-6 text-sm">
-            <Link href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
-              Privacy Policy
-            </Link>
-            <Link href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
-              Terms of Service
-            </Link>
-          </div>
+          <p className="text-gray-400 text-sm">
+            Designed with ❤️ by Anish Deshpande
+          </p>
         </div>
       </div>
     </footer>
