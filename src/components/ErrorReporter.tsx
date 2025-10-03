@@ -8,7 +8,7 @@ type ReporterProps = {
 
 export default function ErrorReporter({ error, reset }: ReporterProps) {
   const lastOverlayMsg = useRef("");
-  const pollRef = useRef<number | null>(null); // ✅ fix useRef typing
+  const pollRef = useRef<number | null>(null);
 
   useEffect(() => {
     const inIframe = window.parent !== window;
@@ -60,7 +60,7 @@ export default function ErrorReporter({ error, reset }: ReporterProps) {
 
     window.addEventListener("error", onError);
     window.addEventListener("unhandledrejection", onReject);
-    pollRef.current = window.setInterval(pollOverlay, 1000); // ✅ window.setInterval
+    pollRef.current = window.setInterval(pollOverlay, 1000); 
 
     return () => {
       window.removeEventListener("error", onError);

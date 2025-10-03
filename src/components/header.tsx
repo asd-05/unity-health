@@ -46,7 +46,7 @@ export const Header = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // run on load
+    handleScroll(); 
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -64,7 +64,7 @@ export const Header = () => {
               if (hero) {
                 hero.scrollIntoView({ behavior: "smooth", block: "start" });
               }
-              setMobileMenuOpen(false); // close mobile menu if open
+              setMobileMenuOpen(false); 
             }}
             className="flex items-center"
           >

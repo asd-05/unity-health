@@ -1,17 +1,16 @@
 import nodemailer from "nodemailer";
 
 const requests: Record<string, { count: number; lastRequest: number }> = {};
-const LIMIT = 3; // max 3 per minute
+const LIMIT = 3; 
 const WINDOW = 60 * 1000;
 
 export async function POST(req: Request) {
   const body = await req.json();
-  const { name, phone, query, email } = body; // include email if collected
+  const { name, phone, query, email } = body;
 
   const ip = req.headers.get("x-forwarded-for") || "unknown";
   const now = Date.now();
 
-  // ---- Rate Limiter ----
   if (!requests[ip]) {
     requests[ip] = { count: 1, lastRequest: now };
   } else {
@@ -33,16 +32,14 @@ export async function POST(req: Request) {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: process.env.GMAIL_USER, // your Gmail
-      pass: process.env.GMAIL_PASS, // app password
+      user: process.env.GMAIL_USER,
+      pass: process.env.GMAIL_PASS, 
     },
   });
 
   try {
-    // Verify transporter (debug step, can be removed later)
     await transporter.verify();
 
-    // ---- Send to Admin (You) ----
     await transporter.sendMail({
       from: `"Unity Health India Website" <${process.env.GMAIL_USER}>`,
       to: process.env.GMAIL_USER,
@@ -50,11 +47,10 @@ export async function POST(req: Request) {
       text: `Name: ${name}\nPhone: ${phone}\nQuery: ${query}`,
     });
 
-    // ---- Confirmation mail to User ----
     if (email) {
       await transporter.sendMail({
         from: `"Unity Health India" <${process.env.GMAIL_USER}>`,
-        to: email, // ✅ send confirmation to user’s email
+        to: email,
         subject: "We received your query",
         text: `Hi ${name},\n\nThanks for reaching out to Unity Health India. We have received your query and will respond shortly.\n\nRegards,\nUnity Health India Team`,
       });

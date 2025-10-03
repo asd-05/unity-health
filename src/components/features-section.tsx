@@ -1,62 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import {
-  IndianRupee,
-  Clock,
-  Video,
-  FileText,
-  ShieldCheck,
-  Languages,
-} from "lucide-react";
 import { motion } from "framer-motion";
+import { features } from "../app/data/features";
 
 export const FeaturesSection = () => {
-  const features = [
-    {
-      icon: IndianRupee,
-      title: "Affordable Consultations",
-      description:
-        "Transparent and low-cost consultations, pay what you can with no hidden charges.",
-    },
-    {
-      icon: Clock,
-      title: "Expert Doctors On-Demand",
-      description: (
-        <>
-          Get expert medical advice{" "}
-          <span className="font-semibold">anywhere</span> — no more long waiting
-          queues.
-        </>
-      ),
-    },
-    {
-      icon: Video,
-      title: "Video & Audio Calls",
-      description:
-        "Seamless online consultations with HD video or quick audio calls for your convenience.",
-    },
-    {
-      icon: FileText,
-      title: "Digital Prescriptions",
-      description:
-        "Instant, secure prescriptions you can download, store, and reuse easily.",
-    },
-    {
-      icon: ShieldCheck,
-      title: "Verified Doctors",
-      description:
-        "Trusted, experienced doctors with verified credentials for genuine healthcare.",
-    },
-    {
-      icon: Languages,
-      title: "Multi-Language Support",
-      description:
-        "Consult in your preferred regional language for comfort, clarity, and better care.",
-    },
-  ];
-
-  // Animation variants
   const cardVariants = {
     hidden: { opacity: 0, y: 0 },
     visible: (delay: number) => ({
@@ -120,7 +68,6 @@ export const FeaturesSection = () => {
   );
 };
 
-// 🔹 Each card animates when visible
 const InViewCard = ({
   children,
   variants,
@@ -148,7 +95,6 @@ const InViewCard = ({
     return () => observer.disconnect();
   }, []);
 
-  // ✅ Stagger animation for ALL viewports (desktop + mobile)
   const delay = index * 0.2;
 
   return (
@@ -158,10 +104,9 @@ const InViewCard = ({
       animate={visible ? "visible" : "hidden"}
       custom={delay}
       variants={variants}
-      className="bg-card p-4 sm:p-6 lg:p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group dark:bg-slate-800 flex flex-col items-center text-center  hover:border-blue-500"
+      className="bg-card p-4 sm:p-6 lg:p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group dark:bg-slate-800 flex flex-col items-center text-center border border-transparent hover:border-blue-600"
     >
       {children}
     </motion.div>
   );
 };
-
