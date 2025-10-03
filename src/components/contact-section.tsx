@@ -160,8 +160,8 @@ export const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-lg mb-1 text-foreground">Phone</h4>
-                  <p className="text-foreground/70">+91 98765 43210</p>
-                  <p className="text-foreground/70">+91 12345 67890</p>
+                  <p className="text-foreground/70">+91 84336 33297</p>
+                  <p className="text-foreground/70">+91 96640 10041</p>
                 </div>
               </div>
 
@@ -171,24 +171,23 @@ export const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-lg mb-1 text-foreground">Email</h4>
-                  <p className="text-foreground/70">info@unityhealth.in</p>
-                  <p className="text-foreground/70">support@unityhealth.in</p>
+                  <p className="text-foreground/70">unityhealthindia@gmail.com</p>
+                  <p className="text-foreground/70">support@unityhealthindia.in</p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
+              {/* <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
                   <MapPin className="text-white" size={24} />
                 </div>
                 <div>
                   <h4 className="font-semibold text-lg mb-1 text-foreground">Address</h4>
                   <p className="text-foreground/70">
-                    123, MG Road, Bangalore
-                    <br />
-                    Karnataka - 560001, India
+                    123 Health Street, Medical District, <br />
+                  Mumbai, Maharashtra 400001
                   </p>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
 

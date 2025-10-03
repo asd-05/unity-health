@@ -74,7 +74,7 @@ export const Header = () => {
               width={40}
               height={40}
             />
-            <span className="text-lg sm:text-xl font-bold text-blue-500 ml-1 lg:ml-2">
+            <span className="text-lg sm:text-xl font-bold text-black ml-1 lg:ml-2">
               UNITY HEALTH INDIA
             </span>
           </a>

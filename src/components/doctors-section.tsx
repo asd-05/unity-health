@@ -128,7 +128,7 @@ export const DoctorsSection = () => {
                 </div>
 
                 {/* Back Side */}
-                <div className="absolute w-full h-full rounded-2xl bg-gradient-to-b from-blue-300 to-blue-700 text-white p-6 flex flex-col justify-between text-center shadow-lg [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                <div className="absolute w-full h-full rounded-2xl bg-gradient-to-b from-violet-500 to-blue-700 text-white p-6 flex flex-col justify-between text-center shadow-lg [transform:rotateY(180deg)] [backface-visibility:hidden]">
                   {/* Doctor Image */}
                   <div className="flex flex-col items-center">
                     <img

@@ -21,12 +21,12 @@ export const Footer = () => {
           <div className="max-w-md space-y-4">
             {/* Logo */}
             <div className="flex items-center gap-2">
-              <Image
+              {/* <Image
                 src={"/logo/unitylogo1.png"}
                 alt="Unity Health India Logo"
                 width={40}
                 height={40}
-              />
+              /> */}
               <h3 className="text-xl sm:text-2xl font-bold">
                 <span className="text-blue-400">Unity Health</span> India
               </h3>
@@ -69,13 +69,13 @@ export const Footer = () => {
                 <Mail className="text-blue-400 flex-shrink-0 mt-1" size={18} />
                 <p className="text-gray-400">unityhealthindia@gmail.com</p>
               </li>
-              <li className="flex items-start gap-3">
+              {/* <li className="flex items-start gap-3">
                 <MapPin className="text-blue-400 flex-shrink-0 mt-1" size={18} />
                 <p className="text-gray-400">
                   123 Health Street, Medical District, <br />
                   Mumbai, Maharashtra 400001
                 </p>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>
