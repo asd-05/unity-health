@@ -51,7 +51,7 @@ export async function POST(req: Request) {
       await transporter.sendMail({
         from: `"Unity Health India" <${process.env.GMAIL_USER}>`,
         to: email,
-        subject: "We received your query",
+        subject: "We have received your query",
         text: `Hi ${name},\n\nThanks for reaching out to Unity Health India. We have received your query and will respond shortly.\n\nRegards,\nUnity Health India Team`,
       });
     }
