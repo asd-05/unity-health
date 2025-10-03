@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Mail, Phone, Send } from "lucide-react";
 
 export const ContactSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -9,11 +9,13 @@ export const ContactSection = () => {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
+    email: "",
     query: "",
   });
   const [errors, setErrors] = useState({
     name: "",
     phone: "",
+    email: "",
     query: "",
   });
   const [submitSuccess, setSubmitSuccess] = useState(false);
@@ -38,15 +40,9 @@ export const ContactSection = () => {
   }, []);
 
   const validateForm = () => {
-    const newErrors = {
-      name: "",
-      phone: "",
-      query: "",
-    };
-
+    const newErrors = { name: "", phone: "", email: "", query: "" };
     let isValid = true;
 
-    // Name validation
     if (!formData.name.trim()) {
       newErrors.name = "Name is required";
       isValid = false;
@@ -55,7 +51,6 @@ export const ContactSection = () => {
       isValid = false;
     }
 
-    // Phone validation
     if (!formData.phone.trim()) {
       newErrors.phone = "Phone number is required";
       isValid = false;
@@ -64,7 +59,14 @@ export const ContactSection = () => {
       isValid = false;
     }
 
-    // Query validation
+    if (!formData.email.trim()) {
+      newErrors.email = "Email address is required";
+      isValid = false;
+    } else if (!/^\S+@\S+\.\S+$/.test(formData.email.trim())) {
+      newErrors.email = "Email address is invalid";
+      isValid = false;
+    }
+
     if (!formData.query.trim()) {
       newErrors.query = "Query is required";
       isValid = false;
@@ -81,39 +83,40 @@ export const ContactSection = () => {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-    // Clear error when user starts typing
+    setFormData((prev) => ({ ...prev, [name]: value }));
+
     if (errors[name as keyof typeof errors]) {
-      setErrors((prev) => ({
-        ...prev,
-        [name]: "",
-      }));
+      setErrors((prev) => ({ ...prev, [name]: "" }));
     }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    if (!validateForm()) {
-      return;
-    }
+    if (!validateForm()) return;
 
     setIsSubmitting(true);
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      const response = await fetch("/api/sendQuery", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmitSuccess(true);
+        setFormData({ name: "", phone: "", email: "", query: "" });
+      } else {
+        alert(data.message || "Something went wrong");
+      }
+    } catch (error) {
+      alert("Network error, please try again later.");
+    }
 
     setIsSubmitting(false);
-    setSubmitSuccess(true);
-    setFormData({ name: "", phone: "", query: "" });
-
-    // Reset success message after 5 seconds
-    setTimeout(() => {
-      setSubmitSuccess(false);
-    }, 5000);
+    setTimeout(() => setSubmitSuccess(false), 5000);
   };
 
   return (
@@ -131,7 +134,10 @@ export const ContactSection = () => {
             Get In Touch
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            Contact <span className="text-blue-500 dark:text-blue-400">Unity Health</span>
+            Contact{" "}
+            <span className="text-blue-500 dark:text-blue-400">
+              Unity Health
+            </span>
           </h2>
           <p className="text-lg text-foreground/70">
             Have questions? We're here to help. Send us your queries and we'll
@@ -159,7 +165,9 @@ export const ContactSection = () => {
                   <Phone className="text-white" size={24} />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-lg mb-1 text-foreground">Phone</h4>
+                  <h4 className="font-semibold text-lg mb-1 text-foreground">
+                    Phone
+                  </h4>
                   <p className="text-foreground/70">+91 84336 33297</p>
                   <p className="text-foreground/70">+91 96640 10041</p>
                 </div>
@@ -170,30 +178,25 @@ export const ContactSection = () => {
                   <Mail className="text-white" size={24} />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-lg mb-1 text-foreground">Email</h4>
-                  <p className="text-foreground/70">unityhealthindia@gmail.com</p>
-                  <p className="text-foreground/70">support@unityhealthindia.in</p>
-                </div>
-              </div>
-
-              {/* <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <MapPin className="text-white" size={24} />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-lg mb-1 text-foreground">Address</h4>
+                  <h4 className="font-semibold text-lg mb-1 text-foreground">
+                    Email
+                  </h4>
                   <p className="text-foreground/70">
-                    123 Health Street, Medical District, <br />
-                  Mumbai, Maharashtra 400001
+                    unityhealthindia@gmail.com
+                  </p>
+                  <p className="text-foreground/70">
+                    support@unityhealthindia.com
                   </p>
                 </div>
-              </div> */}
+              </div>
             </div>
           </div>
 
           {/* Contact Form */}
           <div className="bg-card rounded-2xl shadow-xl p-6 sm:p-8">
-            <h3 className="text-2xl font-bold mb-6 text-foreground">Send Us a Message</h3>
+            <h3 className="text-2xl font-bold mb-6 text-foreground">
+              Send Us a Message
+            </h3>
 
             {submitSuccess && (
               <div className="mb-6 p-4 bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800/50 rounded-xl text-green-800 dark:text-green-200">
@@ -205,7 +208,6 @@ export const ContactSection = () => {
             )}
 
             <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Name Field */}
               <div>
                 <label
                   htmlFor="name"
@@ -231,7 +233,6 @@ export const ContactSection = () => {
                 )}
               </div>
 
-              {/* Phone Field */}
               <div>
                 <label
                   htmlFor="phone"
@@ -258,7 +259,32 @@ export const ContactSection = () => {
                 )}
               </div>
 
-              {/* Query Field */}
+              <div>
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-semibold mb-2 text-foreground"
+                >
+                  Email Address <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className={`w-full px-4 py-3 rounded-xl border ${
+                    errors.email
+                      ? "border-red-500 focus:ring-red-500"
+                      : "border-border focus:ring-primary dark:focus:ring-blue-400"
+                  } focus:ring-2 focus:outline-none transition-all`}
+                  placeholder="Enter your email address"
+                  maxLength={100}
+                />
+                {errors.email && (
+                  <p className="mt-2 text-sm text-red-500">{errors.email}</p>
+                )}
+              </div>
+
               <div>
                 <label
                   htmlFor="query"
@@ -271,7 +297,7 @@ export const ContactSection = () => {
                   name="query"
                   value={formData.query}
                   onChange={handleChange}
-                  rows={5}
+                  rows={2}
                   className={`w-full px-4 py-3 rounded-xl border ${
                     errors.query
                       ? "border-red-500 focus:ring-red-500"
@@ -284,7 +310,6 @@ export const ContactSection = () => {
                 )}
               </div>
 
-              {/* Submit Button */}
               <button
                 type="submit"
                 disabled={isSubmitting}

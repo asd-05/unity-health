@@ -2,23 +2,21 @@
 
 import { JSX, useEffect, useRef, useState } from "react";
 import LogoLoop from "./LogoLoop";
-import { 
-  Baby, 
-  Stethoscope, 
-  Heart, 
-  Brain, 
-  User, 
-  Users, 
-  Activity, 
-  Scissors, 
-  Square, 
-  Droplet, 
-  Sparkles, 
-  Ear, 
-  Eye, 
-  Smile, 
+import {
+  Baby,
+  Stethoscope,
+  Heart,
+  Brain,
+  Users,
+  Activity,
+  Scissors,
+  Droplet,
+  Sparkles,
+  Ear,
+  Eye,
+  Smile,
   Laugh,
-  Bone
+  Bone,
 } from "lucide-react";
 
 interface Specialty {
@@ -29,7 +27,6 @@ interface Specialty {
 
 export const SpecialtiesSection = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -45,85 +42,87 @@ export const SpecialtiesSection = () => {
     return () => observer.disconnect();
   }, []);
 
-  const specialties: Specialty[] = [ 
-  {
-    icon: <Baby size={48} className="text-blue-500" />,
-    title: "Pediatrics",
-    description: "Comprehensive care for infants, children, and adolescents.",
-  },
-  {
-    icon: <Stethoscope size={48} className="text-blue-500" />,
-    title: "Medicine",
-    description: "Primary and preventive care for adults of all ages.",
-  },
-  {
-    icon: <Heart size={48} className="text-blue-500" />,
-    title: "Cardiology",
-    description: "Heart health specialists offering advanced treatment and care.",
-  },
-  {
-    icon: <Brain size={48} className="text-blue-500" />,
-    title: "Neurology",
-    description: "Expert diagnosis and management of neurological conditions.",
-  },
-  {
-    icon: <Bone size={48} className="text-blue-500" />,
-    title: "Orthopaedics",
-    description: "Bone, joint, and muscle care by experienced specialists.",
-  },
-  {
-    icon: <Users size={48} className="text-blue-500" />,
-    title: "OBGY",
-    description: "Women's health, pregnancy care, and reproductive services.",
-  },
-  {
-    icon: <Activity size={48} className="text-blue-500" />,
-    title: "Physiotherapy",
-    description: "Rehabilitation and mobility improvement programs.",
-  },
-  {
-    icon: <Scissors size={48} className="text-blue-500" />,
-    title: "Surgery",
-    description: "Surgical care for common and complex health conditions.",
-  },
-  {
-    icon: <Laugh size={48} className="text-blue-500" />,
-    title: "Dental",
-    description: "Complete oral health and dental care services.",
-  },
-  {
-    icon: <Droplet size={48} className="text-blue-500" />,
-    title: "Nephrology",
-    description: "Specialized care for kidney health and related disorders.",
-  },
-  {
-    icon: <Sparkles size={48} className="text-blue-500" />,
-    title: "Dermatology",
-    description: "Skin, hair, and nail care by expert dermatologists.",
-  },
-  {
-    icon: <Ear size={48} className="text-blue-500" />,
-    title: "ENT",
-    description: "Comprehensive care for ear, nose, and throat conditions.",
-  },
-  {
-    icon: <Eye size={48} className="text-blue-500" />,
-    title: "Ophthalmology",
-    description: "Eye care services including vision correction and surgery.",
-  },
-  {
-    icon: <Smile size={48} className="text-blue-500" />,
-    title: "Psychiatry",
-    description: "Mental health services for emotional and behavioral wellbeing.",
-  },
-];
+  const specialties: Specialty[] = [
+    {
+      icon: <Baby size={48} className="text-blue-500" />,
+      title: "Pediatrics",
+      description: "Comprehensive care for infants, children, and adolescents.",
+    },
+    {
+      icon: <Stethoscope size={48} className="text-blue-500" />,
+      title: "Medicine",
+      description: "Primary and preventive care for adults of all ages.",
+    },
+    {
+      icon: <Heart size={48} className="text-blue-500" />,
+      title: "Cardiology",
+      description: "Heart health specialists offering advanced treatment and care.",
+    },
+    {
+      icon: <Brain size={48} className="text-blue-500" />,
+      title: "Neurology",
+      description: "Expert diagnosis and management of neurological conditions.",
+    },
+    {
+      icon: <Bone size={48} className="text-blue-500" />,
+      title: "Orthopaedics",
+      description: "Bone, joint, and muscle care by experienced specialists.",
+    },
+    {
+      icon: <Users size={48} className="text-blue-500" />,
+      title: "OBGY",
+      description: "Women's health, pregnancy care, and reproductive services.",
+    },
+    {
+      icon: <Activity size={48} className="text-blue-500" />,
+      title: "Physiotherapy",
+      description: "Rehabilitation and mobility improvement programs.",
+    },
+    {
+      icon: <Scissors size={48} className="text-blue-500" />,
+      title: "Surgery",
+      description: "Surgical care for common and complex health conditions.",
+    },
+    {
+      icon: <Laugh size={48} className="text-blue-500" />,
+      title: "Dental",
+      description: "Complete oral health and dental care services.",
+    },
+    {
+      icon: <Droplet size={48} className="text-blue-500" />,
+      title: "Nephrology",
+      description: "Specialized care for kidney health and related disorders.",
+    },
+    {
+      icon: <Sparkles size={48} className="text-blue-500" />,
+      title: "Dermatology",
+      description: "Skin, hair, and nail care by expert dermatologists.",
+    },
+    {
+      icon: <Ear size={48} className="text-blue-500" />,
+      title: "ENT",
+      description: "Comprehensive care for ear, nose, and throat conditions.",
+    },
+    {
+      icon: <Eye size={48} className="text-blue-500" />,
+      title: "Ophthalmology",
+      description: "Eye care services including vision correction and surgery.",
+    },
+    {
+      icon: <Smile size={48} className="text-blue-500" />,
+      title: "Psychiatry",
+      description:
+        "Mental health services for emotional and behavioral wellbeing.",
+    },
+  ];
 
   return (
     <section
       id="specialties"
       ref={sectionRef}
-      className={`py-16 sm:py-24 bg-white dark:bg-background transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-        }`}
+      className={`py-16 sm:py-24 bg-white dark:bg-background transition-all duration-1000 ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+      }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Section Header */}
@@ -132,23 +131,21 @@ export const SpecialtiesSection = () => {
             Our Specialties
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            Comprehensive Care Across <span className="text-blue-500">Medical Fields</span>
+            Comprehensive Care Across{" "}
+            <span className="text-blue-500">Medical Fields</span>
           </h2>
           <p className="text-lg text-foreground/70">
-            From Pediatrics to Orthopedics, Cardiology to OBGYN, we cover a wide range of specialties to ensure your complete well-being.
+            From Pediatrics to Orthopedics, Cardiology to OBGYN, we cover a wide
+            range of specialties to ensure your complete well-being.
           </p>
         </div>
 
-        {/* Interactive LogoLoop */}
+        {/* Logo Loop */}
         <div className="relative h-48 overflow-visible">
           <LogoLoop
-            logos={specialties.map((s, idx) => ({
+            logos={specialties.map((s) => ({
               node: (
-                <div
-                  onMouseEnter={() => setHoveredIndex(idx)}
-                  onMouseLeave={() => setHoveredIndex(null)}
-                  className="cursor-pointer p-4 bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-blue-600 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col items-center w-36"
-                >
+                <div className="cursor-pointer p-4 bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-blue-600 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col items-center w-36">
                   {s.icon}
                   <span className="mt-2 font-semibold text-sm text-gray-800 dark:text-white">
                     {s.title}
@@ -167,23 +164,6 @@ export const SpecialtiesSection = () => {
             fadeOutColor="#ffffff"
             ariaLabel="Medical Specialties"
           />
-
-          {/* Hover Card */}
-          {/* {hoveredIndex !== null && (
-            <div
-              className="absolute top-40 left-0 right-0 flex justify-center pointer-events-none overflow-visible"
-              style={{ zIndex: 50 }}
-            >
-              <div className="bg-white dark:bg-slate-800 border border-gray-200 dark:border-gray-700 shadow-2xl rounded-xl p-6 w-96 text-center transition-all duration-300">
-                <h3 className="font-bold text-lg text-blue-500 mb-2">
-                  {specialties[hoveredIndex].title}
-                </h3>
-                <p className="text-gray-700 dark:text-gray-300 text-sm">
-                  {specialties[hoveredIndex].description}
-                </p>
-              </div>
-            </div>
-          )} */}
         </div>
       </div>
     </section>

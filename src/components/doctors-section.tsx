@@ -7,7 +7,7 @@ const doctors = [
   {
     name: "Dr. Abhishek Chabukswar",
     specialty: "Orthopedic Surgeon",
-    image:"/doctors/bhau-doc.png",
+    image: "/doctors/bhau-doc.png",
     info: "20+ years of experience, specialized in heart surgeries and treatments.",
     socials: {
       linkedin: "#",
@@ -18,7 +18,7 @@ const doctors = [
   {
     name: "Dr. Akshata Chabukswar",
     specialty: "Dentist",
-    image:"/doctors/akshu-doc.png",
+    image: "/doctors/akshu-doc.png",
     info: "Expert in brain and spine disorders, practicing at Apollo Hospital.",
     socials: {
       linkedin: "#",
@@ -27,9 +27,9 @@ const doctors = [
     },
   },
   {
-     name: "Dr. Abhishek Chabukswar",
+    name: "Dr. Abhishek Chabukswar",
     specialty: "Orthopedic Surgeon",
-    image:"/doctors/bhau-doc.png",
+    image: "/doctors/bhau-doc.png",
     info: "Trusted family doctor, known for holistic treatments.",
     socials: {
       linkedin: "#",
@@ -40,7 +40,7 @@ const doctors = [
   {
     name: "Dr. Akshata Chabukswar",
     specialty: "Dentist",
-    image:"/doctors/akshu-doc.png",
+    image: "/doctors/akshu-doc.png",
     info: "Cosmetic and pediatric dentistry expert with 10+ years of experience.",
     socials: {
       linkedin: "#",
@@ -70,9 +70,8 @@ export const DoctorsSection = () => {
     <section
       id="doctors"
       ref={sectionRef}
-      className={`py-16 sm:py-24 bg-white transition-all duration-1000 ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-      }`}
+      className={`py-16 sm:py-24 bg-white transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -95,10 +94,9 @@ export const DoctorsSection = () => {
               key={index}
               className={`relative w-full h-[320px] sm:h-[370px] cursor-pointer [perspective:1000px] group 
                 transform transition-all duration-700 ease-out hover:shadow-2xl hover:shadow-blue-300/50
-                ${
-                  isVisible
-                    ? "opacity-100 scale-100"
-                    : "opacity-0 scale-95"
+                ${isVisible
+                  ? "opacity-100 scale-100"
+                  : "opacity-0 scale-95"
                 }`}
               style={{ transitionDelay: `${index * 150}ms` }} // stagger effect
               onClick={() =>
@@ -107,11 +105,10 @@ export const DoctorsSection = () => {
             >
               <div
                 className={`relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] 
-                ${
-                  flipped === index
+                ${flipped === index
                     ? "[transform:rotateY(180deg)]"
                     : "group-hover:[transform:rotateY(180deg)]"
-                }`}
+                  }`}
               >
                 {/* Front Side */}
                 <div className="absolute w-full h-full rounded-2xl overflow-hidden shadow-lg [backface-visibility:hidden]">
@@ -129,13 +126,15 @@ export const DoctorsSection = () => {
 
                 {/* Back Side */}
                 <div className="absolute w-full h-full rounded-2xl bg-gradient-to-b from-violet-500 to-blue-700 text-white p-6 flex flex-col justify-between text-center shadow-lg [transform:rotateY(180deg)] [backface-visibility:hidden]">
-                  {/* Doctor Image */}
+                  {/* Doctor Image with Zoom */}
                   <div className="flex flex-col items-center">
-                    <img
-                      src={doc.image}
-                      alt={doc.name}
-                      className="w-20 h-20 rounded-full border-4 border-white shadow-md mb-3"
-                    />
+                    <span className="relative w-20 h-20 rounded-full border-4 border-white shadow-md mb-3 overflow-hidden flex items-center justify-center">
+                      <img
+                        src={doc.image}
+                        alt={doc.name}
+                        className="w-full h-full object-cover scale-125 transform object-top translate-y-1"
+                      />
+                    </span>
                     <h3 className="font-bold text-lg">{doc.name}</h3>
                     <p className="text-sm text-blue-100">{doc.specialty}</p>
                   </div>

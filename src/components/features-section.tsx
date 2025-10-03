@@ -58,7 +58,7 @@ export const FeaturesSection = () => {
 
   // Animation variants
   const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0, y: 0 },
     visible: (delay: number) => ({
       opacity: 1,
       y: 0,
@@ -158,7 +158,7 @@ const InViewCard = ({
       animate={visible ? "visible" : "hidden"}
       custom={delay}
       variants={variants}
-      className="bg-card p-4 sm:p-6 lg:p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group dark:bg-slate-800 flex flex-col items-center text-center"
+      className="bg-card p-4 sm:p-6 lg:p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group dark:bg-slate-800 flex flex-col items-center text-center  hover:border-blue-500"
     >
       {children}
     </motion.div>
