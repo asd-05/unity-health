@@ -43,7 +43,7 @@ export const AboutSection = () => {
           {/* Left Image - Visible on all screens but responsive */}
           <div className="relative flex items-center justify-center">
             <img
-              src="/about.png"
+              src="/section/about.png"
               alt="About Unity Health"
               className="w-3/4 sm:w-2/3 lg:w-full h-auto object-contain"
             />

@@ -83,7 +83,7 @@ export const HeroSection = () => {
           {/* Hero Image */}
           <div className="relative w-full flex justify-center lg:mb-0">
             <Image
-              src="/hero-image.png"
+              src="/section/hero-image.png"
               alt="Healthcare Illustration"
               width={700}
               height={600}

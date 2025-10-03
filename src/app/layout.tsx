@@ -13,7 +13,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Unity Health India",
+  title: "Unity Health India - Your Online Multispeciality OPD",
   description: "Your Health, Our Priority - Providing affordable Quality Care",
 };
 

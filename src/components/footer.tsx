@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { Phone, Mail, MapPin } from "lucide-react";
-import { FaInstagram, FaLinkedin, FaFacebook  } from "react-icons/fa";
+import { FaInstagram, FaLinkedin, FaFacebook } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import Image from "next/image";
 
 export const Footer = () => {
   const socialLinks = [
@@ -18,13 +19,24 @@ export const Footer = () => {
         <div className="flex flex-col lg:flex-row justify-between gap-12">
           {/* Company Info */}
           <div className="max-w-md space-y-4">
-            <h3 className="text-xl sm:text-2xl font-bold">
-              <span className="text-blue-400">Unity Health</span> India
-            </h3>
+            {/* Logo */}
+            <div className="flex items-center gap-2">
+              <Image
+                src={"/logo/unitylogo1.png"}
+                alt="Unity Health India Logo"
+                width={40}
+                height={40}
+              />
+              <h3 className="text-xl sm:text-2xl font-bold">
+                <span className="text-blue-400">Unity Health</span> India
+              </h3>
+            </div>
+
             <p className="text-gray-400 leading-relaxed">
               Providing world-class healthcare services with compassion and
               excellence. Your health is our priority.
             </p>
+
             <div className="flex gap-4 pt-2">
               {socialLinks.map((social, index) => {
                 const Icon = social.icon;
@@ -49,13 +61,13 @@ export const Footer = () => {
               <li className="flex items-start gap-3">
                 <Phone className="text-blue-400 flex-shrink-0 mt-1" size={18} />
                 <div>
-                  <p className="text-gray-400">+91 98765 43210</p>
-                  <p className="text-gray-400">+91 12345 67890</p>
+                  <p className="text-gray-400">+91 84336 33297</p>
+                  <p className="text-gray-400">+91 96640 10041</p>
                 </div>
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="text-blue-400 flex-shrink-0 mt-1" size={18} />
-                <p className="text-gray-400">info@unityhealthindia.com</p>
+                <p className="text-gray-400">unityhealthindia@gmail.com</p>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="text-blue-400 flex-shrink-0 mt-1" size={18} />
@@ -73,9 +85,7 @@ export const Footer = () => {
           <p className="text-gray-400 text-sm">
             © 2025 Unity Health India. All rights reserved.
           </p>
-          <p className="text-gray-400 text-sm">
-            Created with ❤️ in India.
-          </p>
+          <p className="text-gray-400 text-sm">Created with ❤️ in India.</p>
         </div>
       </div>
     </footer>

@@ -7,7 +7,7 @@ const doctors = [
   {
     name: "Dr. Abhishek Chabukswar",
     specialty: "Orthopedic Surgeon",
-    image:"/bhau-doc.png",
+    image:"/doctors/bhau-doc.png",
     info: "20+ years of experience, specialized in heart surgeries and treatments.",
     socials: {
       linkedin: "#",
@@ -18,7 +18,7 @@ const doctors = [
   {
     name: "Dr. Akshata Chabukswar",
     specialty: "Dentist",
-    image:"/akshu-doc.png",
+    image:"/doctors/akshu-doc.png",
     info: "Expert in brain and spine disorders, practicing at Apollo Hospital.",
     socials: {
       linkedin: "#",
@@ -29,7 +29,7 @@ const doctors = [
   {
      name: "Dr. Abhishek Chabukswar",
     specialty: "Orthopedic Surgeon",
-    image:"/bhau-doc.png",
+    image:"/doctors/bhau-doc.png",
     info: "Trusted family doctor, known for holistic treatments.",
     socials: {
       linkedin: "#",
@@ -40,7 +40,7 @@ const doctors = [
   {
     name: "Dr. Akshata Chabukswar",
     specialty: "Dentist",
-    image:"/akshu-doc.png",
+    image:"/doctors/akshu-doc.png",
     info: "Cosmetic and pediatric dentistry expert with 10+ years of experience.",
     socials: {
       linkedin: "#",
