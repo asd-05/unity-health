@@ -14,7 +14,7 @@ export const doctors: Doctor[] = [
   {
     name: "Dr. Abhishek Chabukswar",
     specialty: "MBBS, MS (Orthopedics), Fellowship in Spine Surgery",
-    image: "/doctors/bhau-doc.png",
+    image: "/doctors/dr-abhi.jpg",
     info: "Experienced orthopedic surgeon specializing in Spinal surgeries.",
     socials: {
       linkedin: "#",
@@ -25,7 +25,7 @@ export const doctors: Doctor[] = [
   {
     name: "Dr. Akshata Chabukswar",
     specialty: "Bachelor of Dental Surgery (BDS)",
-    image: "/doctors/akshu-doc.jpg",
+    image: "/doctors/dr-akshu.jpg",
     info: "Expert in cosmetic dentistry and orthodontics.",
     socials: {
       linkedin: "#",
@@ -36,7 +36,7 @@ export const doctors: Doctor[] = [
   {
     name: "Dr. Aishwarya Chavarkar",
     specialty: "MBBS, MS (General Surgery), Fellowship in Breast Oncology",
-    image: "/doctors/aishwarya-doc.jpg",
+    image: "/doctors/dr-aishwarya.jpg",
     info: "Trusted family doctor, known for holistic treatments.",
     socials: {
       linkedin: "#",
@@ -47,7 +47,7 @@ export const doctors: Doctor[] = [
   {
     name: "Dr. Shruti Rane",
     specialty: "Bachelor of Medicine and Bachelor of Surgery (MBBS)",
-    image: "/doctors/shruti-doc.jpg",
+    image: "/doctors/dr-shruti.jpg",
     info: "Skilled doctor with expertise in general medicine and surgery.",
     socials: {
       linkedin: "#",
@@ -58,7 +58,7 @@ export const doctors: Doctor[] = [
   {
     name: "Dr. Smriti Yadav",
     specialty: "Physiotherapist",
-    image: "/doctors/smriti-doc.jpg",
+    image: "/doctors/dr-smriti.jpg",
     info: "Expert in neuro physiotherapy and rehabilitation with 8+ years of experience.",
     socials: {
       linkedin: "#",
@@ -69,7 +69,7 @@ export const doctors: Doctor[] = [
   {
     name: "Dr. Shubhamkar Nazikar",
     specialty: "MBBS | MD (General Medicine)",
-    image: "/doctors/shubhamkar-doc.jpg",
+    image: "/doctors/dr-shubhamkar.jpg",
     info: "Experienced in internal medicine with a focus on chronic illnesses.",
     socials: {
       linkedin: "#",
@@ -80,7 +80,7 @@ export const doctors: Doctor[] = [
   {
     name: "Dr. Shradha Vohra",
     specialty: "MBBS, MS (Obstetrics & Gynecology), F.MAS, D.MAS, F.I.H",
-    image: "/doctors/shradha-doc.jpg",
+    image: "/doctors/dr-shradha.jpg",
     info: "Experienced in internal medicine with a focus on chronic illnesses.",
     socials: {
       linkedin: "#",
@@ -91,7 +91,7 @@ export const doctors: Doctor[] = [
   {
     name: "Dr. Sreya Kiran",
     specialty: "MBBS, MD Dermatology",
-    image: "/doctors/sreya-doc.jpg",
+    image: "/doctors/dr-sreya.jpg",
     info: "Experienced in internal medicine with a focus on chronic illnesses.",
     socials: {
       linkedin: "#",
@@ -102,7 +102,7 @@ export const doctors: Doctor[] = [
   {
     name: "Dr. Rupali Naidu",
     specialty: "MBBS, MD pediatrics, fellowship in PGPN",
-    image: "/doctors/rupali-doc.jpg",
+    image: "/doctors/dr-rupali.jpg",
     info: "Experienced in internal medicine with a focus on chronic illnesses.",
     socials: {
       linkedin: "#",

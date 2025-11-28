@@ -92,20 +92,20 @@ export const DoctorsSection = () => {
                     >
 
                       {/* Front Side */}
-<div className="absolute w-full h-full rounded-2xl overflow-hidden shadow-lg [backface-visibility:hidden]">
-  <img
-    src={doc.image}
-    alt={doc.name}
-    className="w-full h-full object-cover"
-  />
-  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                      <div className="absolute w-full h-full rounded-2xl overflow-hidden shadow-lg [backface-visibility:hidden]">
+                        <img
+                          src={doc.image}
+                          alt={doc.name}
+                          className="w-full h-[120%] object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
 
-  {/* Centered Name */}
-  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-center w-full px-4">
-    <h3 className="font-bold text-lg">{doc.name}</h3>
-    {/* <p className="text-sm text-white/80">{doc.specialty}</p> */}
-  </div>
-</div>
+                        {/* Centered Name */}
+                        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-center w-full px-4">
+                          <h3 className="font-bold text-lg">{doc.name}</h3>
+                          {/* <p className="text-sm text-white/80">{doc.specialty}</p> */}
+                        </div>
+                      </div>
 
 
                       {/* Back Side */}
