@@ -13,7 +13,7 @@ export const Header = () => {
     { label: "Specialties", href: "#specialties" },
     { label: "About Us", href: "#about" },
     { label: "Our Doctors", href: "#doctors" },
-    { label: "Contact Us", href: "#contact" },
+    // { label: "Contact Us", href: "#contact" },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -66,15 +66,15 @@ export const Header = () => {
               }
               setMobileMenuOpen(false); 
             }}
-            className="flex items-center"
+            className="flex items-center pt-2"
           >
             <Image
-              src={"/logo/unitylogo1.png"}
+              src={"/logo/logo_final1.png"}
               alt="Unity Health India Logo"
-              width={40}
-              height={40}
+              width={80}
+              height={80}
             />
-            <span className="text-lg sm:text-xl font-bold text-black ml-1 lg:ml-2">
+            <span className="text-lg sm:text-xl font-bold text-black">
               UNITY HEALTH INDIA
             </span>
           </a>

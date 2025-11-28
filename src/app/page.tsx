@@ -17,7 +17,7 @@ export default function Home() {
         <SpecialtiesSection />
         <AboutSection />
         <DoctorsSection />
-        <ContactSection />
+        {/* <ContactSection /> */}
       </main>
       <Footer />
     </div>
