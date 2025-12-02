@@ -67,7 +67,7 @@ export const doctors: Doctor[] = [
     },
   },
   {
-    name: "Dr. Shubhamkar Nazikar",
+    name: "Dr. Shubhamkar Nazirkar",
     specialty: "MBBS | MD (General Medicine)",
     image: "/doctors/dr-shubhamkar.jpg",
     info: "Experienced in internal medicine with a focus on chronic illnesses.",
@@ -110,4 +110,26 @@ export const doctors: Doctor[] = [
       email: "mailto:sneha@example.com",
     },
   },
+  // {
+  //   name: "Dr. Tanima Taslima",
+  //   specialty: "ENT Specialist",
+  //   image: "/doctors/dr-tanima.jpg",
+  //   info: "Experienced in internal medicine with a focus on chronic illnesses.",
+  //   socials: {
+  //     linkedin: "#",
+  //     twitter: "#",
+  //     email: "mailto:sneha@example.com",
+  //   },
+  // },
+  // {
+  //   name: "Dr. Lochan Malandkar",
+  //   specialty: "Nephrologist",
+  //   image: "/doctors/dr-lochan.jpg",
+  //   info: "Experienced in internal medicine with a focus on chronic illnesses.",
+  //   socials: {
+  //     linkedin: "#",
+  //     twitter: "#",
+  //     email: "mailto:sneha@example.com",
+  //   },
+  // },
 ];
