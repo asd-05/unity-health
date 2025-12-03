@@ -8,7 +8,7 @@ export const Footer = () => {
   const socialLinks = [
     { icon: FaFacebook, href: "#", label: "Facebook" },
     { icon: FaXTwitter, href: "#", label: "Twitter" },
-    { icon: FaInstagram, href: "#", label: "Instagram" },
+    { icon: FaInstagram, href: "https://www.instagram.com/unityhealth.india", label: "Instagram" }, // 💡 UPDATED LINK HERE
     { icon: FaLinkedin, href: "#", label: "LinkedIn" },
   ];
 

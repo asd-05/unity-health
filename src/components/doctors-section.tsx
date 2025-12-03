@@ -129,13 +129,13 @@ export const DoctorsSection = () => {
 
                         {/* Social Links */}
                         <div className="flex justify-center space-x-4 mt-6">
-                          <a className="p-2 bg-white/10 rounded-full hover:bg-white/20 transition">
+                          <a href={doc.socials.linkedin} className="p-2 bg-white/10 rounded-full hover:bg-white/20 transition">
                             <Linkedin size={20} />
                           </a>
-                          <a className="p-2 bg-white/10 rounded-full hover:bg-white/20 transition">
+                          <a href={doc.socials.twitter} className="p-2 bg-white/10 rounded-full hover:bg-white/20 transition">
                             <Twitter size={20} />
                           </a>
-                          <a className="p-2 bg-white/10 rounded-full hover:bg-white/20 transition">
+                          <a href={doc.socials.email} className="p-2 bg-white/10 rounded-full hover:bg-white/20 transition">
                             <Mail size={20} />
                           </a>
                         </div>

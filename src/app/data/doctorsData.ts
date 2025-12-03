@@ -46,7 +46,7 @@ export const doctors: Doctor[] = [
   },
   {
     name: "Dr. Shruti Rane",
-    specialty: "Bachelor of Medicine and Bachelor of Surgery (MBBS)",
+    specialty: "MBBS, MBA in Healthcare Administration",
     image: "/doctors/dr-shruti.jpg",
     info: "Skilled doctor with expertise in general medicine and surgery.",
     socials: {
@@ -112,7 +112,7 @@ export const doctors: Doctor[] = [
   },
   {
     name: "Dr. Tanima Taslima",
-    specialty: "ENT Specialist",
+    specialty: "MBBS, MS (ENT)",
     image: "/doctors/dr-tanima.jpg",
     info: "Experienced in internal medicine with a focus on chronic illnesses.",
     socials: {
