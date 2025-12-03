@@ -17,9 +17,9 @@ export const doctors: Doctor[] = [
     image: "/doctors/dr-abhi.jpg",
     info: "Experienced orthopedic surgeon specializing in Spinal surgeries.",
     socials: {
-      linkedin: "#",
-      twitter: "#",
-      email: "mailto:rajesh@example.com",
+      linkedin: "https://www.instagram.com/unityhealth.india",
+      twitter: "https://www.instagram.com/unityhealth.india",
+      email: "mailto:unityhealthindia@gmail.com",
     },
   },
   {
@@ -28,9 +28,9 @@ export const doctors: Doctor[] = [
     image: "/doctors/dr-akshu.jpg",
     info: "Expert in cosmetic dentistry and orthodontics.",
     socials: {
-      linkedin: "#",
-      twitter: "#",
-      email: "mailto:priya@example.com",
+      linkedin: "https://www.instagram.com/unityhealth.india",
+      twitter: "https://www.instagram.com/unityhealth.india",
+      email: "mailto:unityhealthindia@gmail.com",
     },
   },
   {
@@ -39,9 +39,9 @@ export const doctors: Doctor[] = [
     image: "/doctors/dr-aishwarya.jpg",
     info: "Trusted family doctor, known for holistic treatments.",
     socials: {
-      linkedin: "#",
-      twitter: "#",
-      email: "mailto:amit@example.com",
+      linkedin: "https://www.instagram.com/unityhealth.india",
+      twitter: "https://www.instagram.com/unityhealth.india",
+      email: "mailto:unityhealthindia@gmail.com",
     },
   },
   {
@@ -50,20 +50,9 @@ export const doctors: Doctor[] = [
     image: "/doctors/dr-shruti.jpg",
     info: "Skilled doctor with expertise in general medicine and surgery.",
     socials: {
-      linkedin: "#",
-      twitter: "#",
-      email: "mailto:sneha@example.com",
-    },
-  },
-  {
-    name: "Dr. Smriti Yadav",
-    specialty: "Physiotherapist",
-    image: "/doctors/dr-smriti.jpg",
-    info: "Expert in neuro physiotherapy and rehabilitation with 8+ years of experience.",
-    socials: {
-      linkedin: "#",
-      twitter: "#",
-      email: "mailto:sneha@example.com",
+      linkedin: "https://www.instagram.com/unityhealth.india",
+      twitter: "https://www.instagram.com/unityhealth.india",
+      email: "mailto:unityhealthindia@gmail.com",
     },
   },
   {
@@ -72,9 +61,9 @@ export const doctors: Doctor[] = [
     image: "/doctors/dr-shubhamkar.jpg",
     info: "Experienced in internal medicine with a focus on chronic illnesses.",
     socials: {
-      linkedin: "#",
-      twitter: "#",
-      email: "mailto:sneha@example.com",
+      linkedin: "https://www.instagram.com/unityhealth.india",
+      twitter: "https://www.instagram.com/unityhealth.india",
+      email: "mailto:unityhealthindia@gmail.com",
     },
   },
   {
@@ -83,9 +72,20 @@ export const doctors: Doctor[] = [
     image: "/doctors/dr-shradha.jpg",
     info: "Experienced in internal medicine with a focus on chronic illnesses.",
     socials: {
-      linkedin: "#",
-      twitter: "#",
-      email: "mailto:sneha@example.com",
+      linkedin: "https://www.instagram.com/unityhealth.india",
+      twitter: "https://www.instagram.com/unityhealth.india",
+      email: "mailto:unityhealthindia@gmail.com",
+    },
+  },
+  {
+    name: "Dr. Smriti Yadav",
+    specialty: "Physiotherapist",
+    image: "/doctors/dr-smriti.jpg",
+    info: "Expert in neuro physiotherapy and rehabilitation with 8+ years of experience.",
+    socials: {
+      linkedin: "https://www.instagram.com/unityhealth.india",
+      twitter: "https://www.instagram.com/unityhealth.india",
+      email: "mailto:unityhealthindia@gmail.com",
     },
   },
   {
@@ -94,9 +94,9 @@ export const doctors: Doctor[] = [
     image: "/doctors/dr-sreya.jpg",
     info: "Experienced in internal medicine with a focus on chronic illnesses.",
     socials: {
-      linkedin: "#",
-      twitter: "#",
-      email: "mailto:sneha@example.com",
+      linkedin: "https://www.instagram.com/unityhealth.india",
+      twitter: "https://www.instagram.com/unityhealth.india",
+      email: "mailto:unityhealthindia@gmail.com",
     },
   },
   {
@@ -105,31 +105,31 @@ export const doctors: Doctor[] = [
     image: "/doctors/dr-rupali.jpg",
     info: "Experienced in internal medicine with a focus on chronic illnesses.",
     socials: {
-      linkedin: "#",
-      twitter: "#",
-      email: "mailto:sneha@example.com",
+      linkedin: "https://www.instagram.com/unityhealth.india",
+      twitter: "https://www.instagram.com/unityhealth.india",
+      email: "mailto:unityhealthindia@gmail.com",
     },
   },
-  // {
-  //   name: "Dr. Tanima Taslima",
-  //   specialty: "ENT Specialist",
-  //   image: "/doctors/dr-tanima.jpg",
-  //   info: "Experienced in internal medicine with a focus on chronic illnesses.",
-  //   socials: {
-  //     linkedin: "#",
-  //     twitter: "#",
-  //     email: "mailto:sneha@example.com",
-  //   },
-  // },
-  // {
-  //   name: "Dr. Lochan Malandkar",
-  //   specialty: "Nephrologist",
-  //   image: "/doctors/dr-lochan.jpg",
-  //   info: "Experienced in internal medicine with a focus on chronic illnesses.",
-  //   socials: {
-  //     linkedin: "#",
-  //     twitter: "#",
-  //     email: "mailto:sneha@example.com",
-  //   },
-  // },
+  {
+    name: "Dr. Tanima Taslima",
+    specialty: "ENT Specialist",
+    image: "/doctors/dr-tanima.jpg",
+    info: "Experienced in internal medicine with a focus on chronic illnesses.",
+    socials: {
+      linkedin: "https://www.instagram.com/unityhealth.india",
+      twitter: "https://www.instagram.com/unityhealth.india",
+      email: "mailto:unityhealthindia@gmail.com",
+    },
+  },
+  {
+    name: "Dr. Akhil Joshi",
+    specialty: "MBBS, MD (Psychiatry)",
+    image: "/doctors/dr-akhil.jpg",
+    info: "Experienced in internal medicine with a focus on chronic illnesses.",
+    socials: {
+      linkedin: "https://www.instagram.com/unityhealth.india",
+      twitter: "https://www.instagram.com/unityhealth.india",
+      email: "mailto:unityhealthindia@gmail.com",
+    },
+  },
 ];
