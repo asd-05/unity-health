@@ -3,7 +3,7 @@ import {
   Clock,
   Video,
   FileText,
-  ShieldCheck,
+  HeartHandshakeIcon,
   Languages,
 } from "lucide-react";
 
@@ -12,7 +12,7 @@ export const features = [
     icon: IndianRupee,
     title: "Affordable Consultations",
     description:
-      "Transparent and low-cost consultations, pay what you can with no hidden charges.",
+      "Transparent and low-cost consultations, accessible for only ₹10 with no hidden charges.",
   },
   {
     icon: Clock,
@@ -38,10 +38,10 @@ export const features = [
       "Instant, secure prescriptions you can download, store, and reuse easily.",
   },
   {
-    icon: ShieldCheck,
-    title: "Verified Doctors",
+    icon: HeartHandshakeIcon,
+    title: "Free Health Camps",
     description:
-      "Trusted, experienced doctors with verified credentials for genuine healthcare.",
+      "Organizing free health camps for communities to provide essential medical services and promote wellness.",
   },
   {
     icon: Languages,

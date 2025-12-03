@@ -101,7 +101,7 @@ export const doctors: Doctor[] = [
   },
   {
     name: "Dr. Rupali Naidu",
-    specialty: "MBBS, MD pediatrics, fellowship in PGPN",
+    specialty: "MBBS, MD (Pediatrics), fellowship in PGPN",
     image: "/doctors/dr-rupali.jpg",
     info: "Experienced in internal medicine with a focus on chronic illnesses.",
     socials: {
