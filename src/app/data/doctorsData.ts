@@ -14,7 +14,7 @@ export const doctors: Doctor[] = [
   {
     name: "Dr. Abhishek Chabukswar",
     specialty: "MBBS, MS (Orthopedics), Fellowship in Spine Surgery",
-    image: "/doctors/dr-abhi.jpg",
+    image: "/doctors/dr-bhau.jpg",
     info: "Experienced orthopedic surgeon specializing in Spinal surgeries.",
     socials: {
       linkedin: "https://www.instagram.com/unityhealth.india",
